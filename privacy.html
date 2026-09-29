@@ -1,6 +1,7 @@
 <!doctype html>
 <!--
-  NOTE FOR OMAR (not shown on the page): This policy was drafted on 2026-09-27 from the Redia
+  NOTE FOR OMAR (not shown on the page): Updated 2026-09-28 for the multi-media app (music, books,
+  comics & manga, video games, rating people, category settings). Originally drafted on 2026-09-27 from the Redia
   source code (Stage 1) and the planned design in CLAUDE.md (Stages 2–5: TMDB, CloudKit, Friends,
   block/report, account deletion). It describes the app as it WILL ship, not as it is today.
   Every statement about a feature that isn't built yet is marked with a VERIFY comment: check each
@@ -37,14 +38,14 @@
     <div class="wrap prose">
       <article class="glass">
         <h1>Privacy Policy</h1>
-        <p class="updated">Redia: Rate Media · Effective and last updated September 27, 2026</p>
+        <p class="updated">Redia: Rate Media · Effective and last updated September 28, 2026</p>
 
         <div class="summary-box">
           <strong>The short version</strong>
           <ul>
             <li>Redia signs you in with your iCloud account. We never see your Apple ID email address, name or password.</li>
             <li>Your username, display name, optional profile photo, ratings, reviews and friends list are stored in Apple's iCloud (CloudKit) and are <strong>visible to other Redia users</strong>. That's how friends can find you and see what you've rated.</li>
-            <li>Searches and title lookups are sent to TMDB, the movie and TV database, without any information about who you are.</li>
+            <li>To show you titles and artwork, searches and lookups are sent to the catalogs Redia uses (TMDB, Apple Music, Open Library, AniList and IGDB), without any information about who you are.</li>
             <li>No ads, no analytics, no tracking across apps or websites, and your data is never sold.</li>
             <li>You can delete your account, and everything you've posted, in the app at any time.</li>
           </ul>
@@ -68,7 +69,13 @@
         <!-- VERIFY (Stage 3): confirm the avatar is chosen with the system PhotosPicker (no photo library permission needed) and that no camera access is requested. If the app adds a camera option, add Camera to the permissions section below. -->
 
         <h3>Your ratings and reviews</h3>
-        <p>Each rating stores the title's TMDB ID (for example "movie:550"), whether it's a movie or a show, your score, your optional review, and the date. We store only the ID of the title, never copies of TMDB's titles, posters or descriptions.</p>
+        <p>You can rate movies, TV shows, albums, songs, books, comics, manga and video games, as well as actors, directors and authors. Each rating stores:</p>
+        <ul>
+          <li>the item's catalog ID (for example "movie:550" from TMDB or "book:OL45883W" from Open Library) and its type;</li>
+          <li>for albums and songs, the item's industry code (UPC or ISRC), so your rating still matches if Apple Music uses a different ID in another country;</li>
+          <li>your score, your optional review, and the date.</li>
+        </ul>
+        <p>We store only these IDs, never copies of the catalogs' titles, artwork, descriptions or scores. Ratings of people are public in the same way as ratings of titles.</p>
 
         <h3>Friends</h3>
         <p>When you add a friend, Redia saves a record that you follow that user. Adding is one-way, like a follow: the other person doesn't need to approve it, and they can see that you added them. <!-- VERIFY (Stage 4): can a user see who has added them (a followers list)? The CloudKit Friend records are world-readable, so technically yes. Update this sentence to match what the app shows. --></p>
@@ -83,7 +90,7 @@
             <thead><tr><th scope="col">Information</th><th scope="col">Who can see it</th></tr></thead>
             <tbody>
               <tr><td>Username, display name, profile photo</td><td>Anyone using Redia</td></tr>
-              <tr><td>Ratings and reviews</td><td>Anyone using Redia who looks up your username</td></tr>
+              <tr><td>Ratings and reviews, including ratings of people</td><td>Anyone using Redia who looks up your username</td></tr>
               <tr><td>Who you've added as a friend</td><td>Anyone using Redia <!-- VERIFY (Stage 4) --></td></tr>
               <tr><td>Blocks and reports</td><td>Only you and the developer <!-- VERIFY (Stage 5): requires the CloudKit security roles above --></td></tr>
               <tr><td>Your Apple ID email, name, password</td><td>Nobody. Redia never receives them</td></tr>
@@ -95,13 +102,24 @@
         <h3>Where it's stored</h3>
         <p>All of the above is stored in Redia's public database in Apple's iCloud (CloudKit). Apple hosts it and may store it on servers outside your country, including in the United States. It doesn't use your personal iCloud storage. We can see these records through Apple's developer tools, and we look at them only to run the app, handle reports, and answer your requests.</p>
 
-        <h3>Movie and TV information (TMDB)</h3>
-        <p>Redia gets titles, posters and descriptions from <a href="https://www.themoviedb.org/">The Movie Database (TMDB)</a>. When you search or open a title, your device sends TMDB the text you searched for, or the title's ID, and downloads posters from TMDB's image servers. These requests contain no username, iCloud identifier or other information about who you are, but, like any website or service you connect to, TMDB can see your device's IP address.</p>
-        <p>To keep the app fast, TMDB responses and posters are cached on your iPhone for up to 30 days, then refreshed or deleted.</p>
-        <!-- VERIFY (Stage 2): confirm the cache is capped at 30 days and that "purge" clears both responses and images. Consider exposing "Clear cache" in the app. -->
+        <h3>Your category settings</h3>
+        <p>The categories you switch on or off, and the order you put them in on Home, are saved only on your iPhone. We never receive them.</p>
+
+        <h3>Titles, artwork and people (the catalogs)</h3>
+        <p>Redia doesn't have its own database of titles. It asks these catalogs directly from your iPhone:</p>
+        <ul>
+          <li><strong>TMDB</strong> (<a href="https://www.themoviedb.org/">The Movie Database</a>): movies, TV shows, actors and directors. To show what's in theatres near you, Redia also sends TMDB your iPhone's region setting (for example "CA").</li>
+          <li><strong>Apple Music</strong> (through Apple's MusicKit): albums and songs.</li>
+          <li><strong>Open Library</strong> (<a href="https://openlibrary.org/">openlibrary.org</a>, a project of the Internet Archive): books, comics and authors.</li>
+          <li><strong>AniList</strong> (<a href="https://anilist.co/">anilist.co</a>): manga, manhwa and manhua.</li>
+          <li><strong>IGDB</strong> (<a href="https://www.igdb.com/">igdb.com</a>, owned by Twitch): video games.</li>
+        </ul>
+        <p>When you search, browse Home or open a page, your iPhone sends the relevant catalog what it needs to answer: the text you searched for, or the ID of the item or person, and it downloads artwork from the catalog's image servers. Redia only asks the catalogs for the categories you have switched on. These requests contain no username, iCloud identifier or other information about who you are. Like any website or service you connect to, each catalog can see your device's IP address.</p>
+        <!-- VERIFY (Stage B): music is still on sample data. When MusicKit ships, confirm what it sends to Apple, and whether Apple Music access (MusicAuthorization) is requested; update the Permissions section to match. -->
+        <p>To keep the app fast and working offline, catalog responses and artwork are cached on your iPhone for no more than 30 days, then refreshed or deleted.</p>
 
         <h3>App configuration</h3>
-        <p>When Redia starts, it downloads a small configuration record from our iCloud database (the key the app uses to access TMDB) and keeps it in your iPhone's Keychain. It contains nothing about you.</p>
+        <p>When Redia starts, it downloads small configuration records from our iCloud database (the keys the app uses to access TMDB and IGDB) and keeps them in your iPhone's Keychain. They contain nothing about you.</p>
 
         <h2 id="third-parties">Third-party services</h2>
         <div class="table-scroll">
@@ -114,14 +132,34 @@
                 <td><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></td>
               </tr>
               <tr>
-                <td>TMDB (movie and TV information and images)</td>
-                <td>Search text, title IDs, your IP address</td>
+                <td>TMDB (movies, TV shows, actors and directors)</td>
+                <td>Search text, title and person IDs, your region setting, your IP address</td>
                 <td><a href="https://www.themoviedb.org/privacy-policy">TMDB Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>Apple Music / MusicKit (albums and songs)</td>
+                <td>Search text, album and song IDs</td>
+                <td><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>Open Library, Internet Archive (books, comics and authors)</td>
+                <td>Search text, book and author IDs, your IP address</td>
+                <td><a href="https://archive.org/about/terms.php">Internet Archive Terms and Privacy</a></td>
+              </tr>
+              <tr>
+                <td>AniList (manga, manhwa and manhua)</td>
+                <td>Search text, series IDs, your IP address</td>
+                <td><a href="https://anilist.co/terms">AniList Terms and Privacy</a></td>
+              </tr>
+              <tr>
+                <td>IGDB, owned by Twitch (video games)</td>
+                <td>Search text, game IDs, your IP address</td>
+                <td><a href="https://www.twitch.tv/p/legal/privacy-notice/">Twitch Privacy Notice</a></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p>Redia uses no other third-party services or software libraries.</p>
+        <p>Redia uses no other third-party services or software libraries. None of these services receive your ratings, reviews, username or friends.</p>
 
         <h2 id="not-collected">What we don't do</h2>
         <ul>
@@ -129,7 +167,7 @@
           <li>No analytics, crash-reporting or tracking software.</li>
           <li>No tracking across other companies' apps or websites.</li>
           <li>No in-app purchases or subscriptions.</li>
-          <li>No access to your location, contacts, microphone or camera.</li>
+          <li>No access to your location, contacts, microphone, camera or music library.</li>
           <li>We never sell, rent or trade your data.</li>
         </ul>
         <p>If you choose to share diagnostics with app developers in your iPhone's settings, Apple may give us anonymous crash reports and usage statistics. You can change this in Settings &gt; Privacy &amp; Security &gt; Analytics &amp; Improvements.</p>
@@ -137,16 +175,17 @@
         <h2 id="retention">How long data is kept, and deleting it</h2>
         <ul>
           <li><strong>Your account and content</strong> stay until you delete them. You can edit or delete any rating or review at any time.</li>
-          <li><strong>Delete your account in the app:</strong> go to Profile, then Delete Account. This permanently deletes your profile, photo, ratings, reviews, friends list and blocks from Redia's database. Other users' friend lists will no longer show you. <!-- VERIFY (Stage 5): confirm the exact menu path, and that deletion removes every record type the user created. Other users' Friend records pointing at the deleted user can't be deleted by that user (creator-only write); make sure the app hides records that point at deleted profiles. --></li>
+          <li><strong>Delete your account in the app:</strong> go to Profile, then Delete Account. This permanently deletes your profile, photo, username, ratings (including ratings of people), reviews, friends list and blocks from Redia's database, and frees up your username. Other users' friend lists will no longer show you. <!-- VERIFY (Stage 5): confirm the exact menu path, and that deletion removes every record type the user created. Other users' Friend records pointing at the deleted user can't be deleted by that user (creator-only write); make sure the app hides records that point at deleted profiles. --></li>
           <li><strong>Reports</strong> you made, or that were made about you, may be kept for up to 12 months after they're resolved, in case the same problem comes up again, then deleted. <!-- VERIFY (Stage 5): decide on this retention period and make sure account deletion handles Report records consistently with it. --></li>
           <li><strong>Deleting the app</strong> removes the on-device cache, but it does <em>not</em> delete your account. Use Delete Account first, or email us.</li>
           <li><strong>By email:</strong> if you can't use the app, email <a href="mailto:omorasaraira@gmail.com">omorasaraira@gmail.com</a> with your username and we'll delete your account within 30 days. We may ask you to confirm the request from inside the app.</li>
-          <li><strong>With TMDB:</strong> see TMDB's privacy policy for how long they keep request logs.</li>
+          <li><strong>With the catalogs</strong> (TMDB, Apple, Open Library, AniList, IGDB): see their privacy policies, linked above, for how long they keep request logs.</li>
         </ul>
 
         <h2 id="permissions">Permissions</h2>
-        <p>Redia doesn't ask for any special permissions. It needs to be signed in to iCloud to create a profile. You can control that in Settings &gt; [your name] &gt; iCloud, and whether Redia may use mobile data in Settings &gt; Redia.</p>
-        <!-- VERIFY (Stages 3–5): confirm the finished app requests no permissions (no notifications, photo library, camera, location, tracking). If any are added, list them here with how to turn them off. -->
+        <p>Redia needs to be signed in to iCloud to create a profile. You can control that in Settings &gt; [your name] &gt; iCloud, and whether Redia may use mobile data in Settings &gt; Redia.</p>
+        <p><strong>Apple Music (Media &amp; Apple Music):</strong> Redia may ask for this the first time you open music, because Apple requires it to search the Apple Music catalog. It never asks at launch. Redia uses it only to look up albums and songs; it doesn't read your music library or playlists, and you don't need an Apple Music subscription to browse and rate. If you say no, everything except music still works. You can change it any time in Settings &gt; Redia.</p>
+        <!-- VERIFY (Stage B): confirm whether MusicAuthorization is actually requested (catalog search may work without it), that the app never reads the user's library, and the exact wording of NSAppleMusicUsageDescription. If it isn't requested, delete this paragraph. Also confirm the finished app requests no other permissions (no notifications, photo library, camera, location, tracking). -->
 
         <h2 id="safety">Safety and user content</h2>
         <p>Usernames, display names, photos and reviews are written by users. You can block any user to hide their content, and report users or reviews that break the rules (for example harassment, hate speech or explicit content). We review reports and may remove content or accounts that break these rules.</p>
@@ -177,8 +216,8 @@
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
       </nav>
-      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-      <p>© 2026 Omar Saraireh. iPhone and iCloud are trademarks of Apple Inc. This site uses no cookies, analytics or trackers.</p>
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Book data from Open Library, manga data from AniList, game data from IGDB.com.</p>
+      <p>© 2026 Omar Saraireh. iPhone, iCloud and Apple Music are trademarks of Apple Inc. This site uses no cookies, analytics or trackers.</p>
     </div>
   </footer>
 </body>

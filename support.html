@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Redia Support</title>
-  <meta name="description" content="Help with Redia: contact, frequently asked questions, blocking and reporting, and deleting your account.">
+  <meta name="description" content="Help with Redia: contact, frequently asked questions, categories, ratings, blocking and reporting, and deleting your account.">
   <meta name="theme-color" content="#f7f3f1" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0b0c" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.png" type="image/png">
@@ -45,7 +45,7 @@
 
         <details>
           <summary>Do I need to create an account?</summary>
-          <p>No password needed. Redia uses the iCloud account on your iPhone. The first time you open it, you pick a username and a display name, and that's it.</p>
+          <p>No password needed. Redia uses the iCloud account on your iPhone. The first time you open it, you choose the categories you're into, then pick a username and a display name, and that's it.</p>
         </details>
 
         <details>
@@ -64,21 +64,51 @@
           <!-- VERIFY (Stage 3): confirm usernames can be changed after sign-up. If they can't, change this answer. -->
         </details>
 
+        <details>
+          <summary>How do I turn categories on or off, or change their order?</summary>
+          <p>Go to Profile &gt; Categories &amp; Home Order. Switch off anything you're not into, and drag the rest into the order you want. Home, search and your Library follow that order. At least one category stays on.</p>
+          <p>Switching a category off only hides it. Your ratings in it are kept and come back when you switch it on again.</p>
+        </details>
+
         <h3>Ratings</h3>
 
         <details>
+          <summary>What can I rate?</summary>
+          <p>Movies, TV shows, albums, songs, books, comics, manga (including manhwa and manhua) and video games. You can also rate actors, directors and authors from their pages.</p>
+        </details>
+
+        <details>
           <summary>How do ratings work?</summary>
-          <p>Ratings go from half a star to five stars, in half-star steps. A review is optional. You can change or delete a rating at any time from the title's page or your Library.</p>
+          <p>Ratings go from half a star to five stars, in half-star steps, the same for everything. A review is optional. You can change or delete a rating at any time from the item's page or your Library.</p>
         </details>
 
         <details>
-          <summary>I can't find a movie or show.</summary>
-          <p>Redia's catalogue comes from <a href="https://www.themoviedb.org/">TMDB</a>. Try the original title or a shorter search. If it isn't on TMDB, Redia can't show it yet; anyone can add missing titles to TMDB.</p>
+          <summary>What's the gold score next to a title?</summary>
+          <p>That's the community score from the catalog the title comes from, shown on that catalog's own scale: TMDB out of 10, Open Library out of 5, AniList as a percentage, and IGDB out of 100. Your own rating is always shown in red stars, so the two never get mixed up. Apple Music doesn't publish ratings, so music shows charts instead.</p>
         </details>
 
         <details>
-          <summary>A title's details or poster are wrong.</summary>
-          <p>Movie and TV information comes from TMDB, and Redia refreshes it from time to time. If something is wrong on TMDB itself, it can be corrected there.</p>
+          <summary>I can't find something.</summary>
+          <p>Try the original title or a shorter search, and check that its category is switched on. Each category comes from a different catalog:</p>
+          <ul>
+            <li>Movies, TV shows, actors and directors: <a href="https://www.themoviedb.org/">TMDB</a></li>
+            <li>Music: the Apple Music catalog</li>
+            <li>Books, Western comics and authors: <a href="https://openlibrary.org/">Open Library</a></li>
+            <li>Manga, manhwa and manhua: <a href="https://anilist.co/">AniList</a></li>
+            <li>Video games: <a href="https://www.igdb.com/">IGDB</a></li>
+          </ul>
+          <p>If something isn't in its catalog, Redia can't show it yet. TMDB, Open Library, AniList and IGDB are all community-edited, so anyone can add missing items there. Adult-only titles are left out on purpose.</p>
+        </details>
+
+        <details>
+          <summary>An item's details or artwork are wrong.</summary>
+          <p>Details and artwork come from the catalogs above, and Redia refreshes them from time to time. If something is wrong in the catalog itself, it can be corrected there.</p>
+        </details>
+
+        <details>
+          <summary>Do I need Apple Music to rate music?</summary>
+          <p>No. You can browse and rate albums and songs without an Apple Music subscription. The first time you open music, Redia may ask for access to Apple Music. That's only to search Apple's catalog; Redia doesn't read your library or playlists.</p>
+          <!-- VERIFY (Stage B): confirm once MusicKit is live. -->
         </details>
 
         <h3>Friends and privacy</h3>
@@ -108,7 +138,7 @@
 
         <details>
           <summary>How do I delete my account?</summary>
-          <p>In the app, go to Profile &gt; Delete Account and confirm. This permanently deletes your profile, photo, ratings, reviews and friends list. It can't be undone.</p>
+          <p>In the app, go to Profile &gt; Delete Account and confirm. This permanently deletes your profile, photo, ratings (including ratings of people), reviews and friends list, and frees up your username. It can't be undone.</p>
           <p>Just deleting the app doesn't delete your account. If you've already deleted it, email <a href="mailto:omorasaraira@gmail.com?subject=Redia%20account%20deletion">omorasaraira@gmail.com</a> with your username and I'll delete your account within 30 days.</p>
         </details>
 
@@ -127,10 +157,11 @@
           <p>iPhone with iOS 26 or later.</p>
         </details>
 
-        <h2 id="attribution">Movie &amp; TV data</h2>
+        <h2 id="attribution">Where the data comes from</h2>
         <div class="attribution glass">
           <img src="tmdb-logo.svg" alt="TMDB" width="94" height="40">
           <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+          <p>Music from Apple Music. Book, comic and author data from <a href="https://openlibrary.org/">Open Library</a>. Manga data from <a href="https://anilist.co/">AniList</a>. Game data from <a href="https://www.igdb.com/">IGDB.com</a>.</p>
         </div>
       </article>
     </div>
@@ -143,8 +174,8 @@
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
       </nav>
-      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-      <p>© 2026 Omar Saraireh. iPhone and iCloud are trademarks of Apple Inc. This site uses no cookies, analytics or trackers.</p>
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Book data from Open Library, manga data from AniList, game data from IGDB.com.</p>
+      <p>© 2026 Omar Saraireh. iPhone, iCloud and Apple Music are trademarks of Apple Inc. This site uses no cookies, analytics or trackers.</p>
     </div>
   </footer>
 </body>

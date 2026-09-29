@@ -211,3 +211,18 @@ details p, details ul, details ol { margin: 10px 0 0; color: var(--ink-soft); }
 @media (prefers-reduced-transparency: reduce) {
   .glass, details, .summary-box, .note { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--bg); }
 }
+
+/* Category chips (mirrors the app's filter row) */
+.chips { list-style: none; padding: 0; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 920px; }
+.chips li { padding: 8px 18px; border-radius: 999px; font-size: 0.95rem; font-weight: 500; }
+
+/* Data sources */
+.section-lede { color: var(--ink-soft); margin: -4px 0 20px; max-width: 60ch; }
+.sources { display: grid; gap: 16px; grid-template-columns: 1fr; }
+.source { padding: 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.source img { height: 36px; width: auto; margin-bottom: 6px; }
+.source .source-name { margin: 0 0 6px; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.02em; min-height: 36px; display: flex; align-items: center; }
+.source h3 { margin: 0; }
+.source p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+@media (min-width: 720px) { .sources { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .sources { grid-template-columns: repeat(3, 1fr); } }

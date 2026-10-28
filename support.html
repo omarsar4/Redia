@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Redia Support</title>
-  <meta name="description" content="Help with Redia: contact, frequently asked questions, categories, ratings, blocking and reporting, and deleting your account.">
+  <meta name="description" content="Help with Redia: contact, frequently asked questions, ratings, friends, blocking and reporting, and deleting your account.">
   <meta name="theme-color" content="#f7f3f1" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0b0c" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.png" type="image/png">
@@ -17,7 +17,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="./"><img src="favicon.png" alt="" width="36" height="36"><span class="brand-name">Redia</span></a>
-      <nav class="nav glass" aria-label="Main">
+      <nav class="nav" aria-label="Main">
         <a href="./">Home</a>
         <a href="support.html" aria-current="page">Support</a>
         <a href="privacy.html">Privacy</a>
@@ -27,17 +27,15 @@
 
   <main id="main" class="doc">
     <div class="wrap prose">
-      <article class="glass">
+      <article>
         <h1>Support</h1>
         <p class="updated">Questions, bugs or ideas? I'd love to hear from you.</p>
 
-        <div class="contact-card glass">
+        <div class="contact-card">
           <p>Email the developer</p>
           <a class="button" href="mailto:omorasaraira@gmail.com?subject=Redia%20support">omorasaraira@gmail.com</a>
           <p class="hint">I usually reply within a few days. If you're reporting a problem, please include your iPhone model, iOS version and, if it's about your account, your Redia username.</p>
         </div>
-
-        <!-- VERIFY (Stages 3–5): once the app is finished, check every menu path and button name below against the real app. -->
 
         <h2 id="faq">Frequently asked questions</h2>
 
@@ -45,28 +43,31 @@
 
         <details>
           <summary>Do I need to create an account?</summary>
-          <p>No password needed. Redia uses the iCloud account on your iPhone. The first time you open it, you choose the categories you're into, then pick a username and a display name, and that's it.</p>
+          <p>No password needed. Redia uses the iCloud account on your iPhone. The first time you open it, you choose the categories you're into, then pick a username, and that's it.</p>
         </details>
 
         <details>
           <summary>It says I'm not signed in to iCloud.</summary>
           <ul>
             <li>Open Settings and make sure you're signed in with your Apple Account at the top.</li>
-            <li>In Settings &gt; [your name] &gt; iCloud, make sure iCloud Drive is turned on.</li>
             <li>Check that you're connected to the internet, then reopen Redia.</li>
           </ul>
-          <!-- VERIFY (Stage 3): CloudKit public-database writes need an iCloud account; confirm whether iCloud Drive must be on and adjust the steps. -->
         </details>
 
         <details>
-          <summary>Can I change my username or display name?</summary>
-          <p>Yes. Go to Profile and tap Edit. Usernames must be unique, so if the one you want is taken you'll need to pick another.</p>
-          <!-- VERIFY (Stage 3): confirm usernames can be changed after sign-up. If they can't, change this answer. -->
+          <summary>How do I change my photo, display name or bio?</summary>
+          <p>Open the Profile tab and tap Edit Profile (or tap your photo). Choose a photo, change your display name, or write a bio of up to 150 characters, then tap the checkmark to save. Nothing changes until you save.</p>
+        </details>
+
+        <details>
+          <summary>Can I change my username?</summary>
+          <p>Yes, once every 30 days. Open the Profile tab, tap Edit Profile, then tap your username. Your ratings, reviews and followers stay with you.</p>
+          <p>Your old username is held for 14 days, so nobody else can take it and pretend to be you. After that, anyone can choose it.</p>
         </details>
 
         <details>
           <summary>How do I turn categories on or off, or change their order?</summary>
-          <p>Go to Profile &gt; Categories &amp; Home Order. Switch off anything you're not into, and drag the rest into the order you want. Home, search and your Library follow that order. At least one category stays on.</p>
+          <p>Go to Settings &gt; Categories &amp; Home Order. Switch off anything you're not into, and drag the rest into the order you want. Home, search and your profile follow that order. At least one category stays on.</p>
           <p>Switching a category off only hides it. Your ratings in it are kept and come back when you switch it on again.</p>
         </details>
 
@@ -74,12 +75,17 @@
 
         <details>
           <summary>What can I rate?</summary>
-          <p>Movies, TV shows, albums, songs, books, comics, manga (including manhwa and manhua) and video games. You can also rate actors, directors and authors from their pages.</p>
+          <p>Movies, TV shows, albums, songs, books, comics, manga (including manhwa and manhua) and video games. You can also rate actors, directors, authors and music artists from their pages.</p>
         </details>
 
         <details>
           <summary>How do ratings work?</summary>
-          <p>Ratings go from half a star to five stars, in half-star steps, the same for everything. A review is optional. You can change or delete a rating at any time from the item's page or your Library.</p>
+          <p>Slide your finger across the stars to rate from a quarter star to five stars, in quarter-star steps. You'll feel a tick at every step and a stronger one on each whole star. For finer control, slide your finger down a little while dragging. A review is optional.</p>
+        </details>
+
+        <details>
+          <summary>How do I change or remove a rating?</summary>
+          <p>Open the item's page and tap Edit next to your rating. You can change it there, or choose Remove Rating. On your profile, you can also press and hold any item and choose Remove Rating.</p>
         </details>
 
         <details>
@@ -92,41 +98,51 @@
           <p>Try the original title or a shorter search, and check that its category is switched on. Each category comes from a different catalog:</p>
           <ul>
             <li>Movies, TV shows, actors and directors: <a href="https://www.themoviedb.org/">TMDB</a></li>
-            <li>Music: the Apple Music catalog</li>
+            <li>Albums, songs and artists: Apple Music</li>
             <li>Books, Western comics and authors: <a href="https://openlibrary.org/">Open Library</a></li>
             <li>Manga, manhwa and manhua: <a href="https://anilist.co/">AniList</a></li>
             <li>Video games: <a href="https://www.igdb.com/">IGDB</a></li>
           </ul>
-          <p>If something isn't in its catalog, Redia can't show it yet. TMDB, Open Library, AniList and IGDB are all community-edited, so anyone can add missing items there. Adult-only titles are left out on purpose.</p>
+          <p>If something isn't in its catalog, Redia can't show it yet. TMDB, Open Library, AniList and IGDB are community-edited, so anyone can add missing items there. Adult-only titles are left out on purpose.</p>
         </details>
 
         <details>
           <summary>An item's details or artwork are wrong.</summary>
-          <p>Details and artwork come from the catalogs above, and Redia refreshes them from time to time. If something is wrong in the catalog itself, it can be corrected there.</p>
+          <p>Details and artwork come from the catalogs above, and Redia refreshes them from time to time. If something is wrong in the catalog itself, it can be corrected there. To refresh everything now, go to Settings &gt; Storage and clear the cache.</p>
         </details>
 
         <details>
-          <summary>Do I need Apple Music to rate music?</summary>
-          <p>No. You can browse and rate albums and songs without an Apple Music subscription. The first time you open music, Redia may ask for access to Apple Music. That's only to search Apple's catalog; Redia doesn't read your library or playlists.</p>
-          <!-- VERIFY (Stage B): confirm once MusicKit is live. -->
+          <summary>Music isn't showing. Do I need Apple Music?</summary>
+          <p>You don't need an Apple Music subscription, but Apple requires your permission before any app can look up its music catalog. Tap <strong>Allow Apple Music</strong> wherever music appears, then choose Allow. Redia only uses this to search the catalog. It doesn't read your library, play music or change anything in your account.</p>
+          <p>If you chose Don't Allow before, turn it on in Settings &gt; Redia &gt; Media &amp; Apple Music.</p>
         </details>
 
         <h3>Friends and privacy</h3>
 
         <details>
-          <summary>How do I add a friend?</summary>
-          <p>Open the Friends tab, search for their username and tap Add. Adding is one-way, like a follow, so they don't have to accept. Their ratings then show up in your Friends tab.</p>
+          <summary>How do I follow someone?</summary>
+          <p>Open the Friends tab, search for their username and tap Follow. Following is one-way, so they don't have to accept. Their ratings and reviews then appear on the pages for titles, people and authors, and you can open their profile any time.</p>
         </details>
 
         <details>
           <summary>Who can see my ratings?</summary>
-          <p>Your profile, ratings and reviews are visible to other Redia users who look up your username. They aren't published on the web. See the <a href="privacy.html">privacy policy</a> for details.</p>
+          <p>Your profile (including your photo and bio), ratings, reviews, followers and the people you follow are visible to other Redia users. They aren't published on the web. Who you block and any reports you send are private. See the <a href="privacy.html">privacy policy</a> for details.</p>
+        </details>
+
+        <details>
+          <summary>Why does a review show stars like f***?</summary>
+          <p>Swearing in other people's reviews and bios is masked by default. To see it, turn off Settings &gt; Safety &gt; Hide Strong Language. Hateful language is always hidden and can't be posted.</p>
         </details>
 
         <details>
           <summary>How do I block or report someone?</summary>
-          <p>Open the person's profile, tap the <span aria-label="More">•••</span> button, then choose Block or Report. You can also report an individual review. Blocked users are hidden from you. Reports are reviewed by the developer, and content or accounts that break the rules are removed.</p>
-          <p>To unblock someone, go to Profile &gt; Blocked Users.</p>
+          <ul>
+            <li><strong>A person:</strong> open their profile, tap the <span aria-label="More">•••</span> button, then choose Report or Block.</li>
+            <li><strong>A review:</strong> press and hold the review, then choose Report Review.</li>
+            <li><strong>A profile photo or bio:</strong> report the person and choose "Inappropriate profile photo" or "Offensive username, name or bio".</li>
+          </ul>
+          <p>Blocking unfollows that person and hides their profile, ratings and reviews from you. Reports are reviewed by the developer, usually within 24 hours, and content or accounts that break the rules are removed. A review reported by three different people is hidden until it's reviewed.</p>
+          <p>To unblock someone, go to Settings &gt; Blocked Users.</p>
         </details>
 
         <details>
@@ -138,13 +154,13 @@
 
         <details>
           <summary>How do I delete my account?</summary>
-          <p>In the app, go to Profile &gt; Delete Account and confirm. This permanently deletes your profile, photo, ratings (including ratings of people), reviews and friends list, and frees up your username. It can't be undone.</p>
+          <p>Go to Settings &gt; Delete Account and type your username to confirm. This permanently deletes your profile, photo and bio, ratings (including ratings of people), reviews, follows and blocks, and frees up your username (and any old one still being held). It can't be undone.</p>
           <p>Just deleting the app doesn't delete your account. If you've already deleted it, email <a href="mailto:omorasaraira@gmail.com?subject=Redia%20account%20deletion">omorasaraira@gmail.com</a> with your username and I'll delete your account within 30 days.</p>
         </details>
 
         <details>
           <summary>I got a new iPhone. Will my ratings come with me?</summary>
-          <p>Yes. Sign in with the same iCloud account and everything will be there.</p>
+          <p>Yes. Sign in with the same iCloud account and everything will be there. Your category settings are kept on each iPhone, so set them again on the new one.</p>
         </details>
 
         <details>
@@ -154,14 +170,14 @@
 
         <details>
           <summary>Which devices are supported?</summary>
-          <p>iPhone with iOS 26 or later.</p>
+          <p>Any iPhone with iOS 26 or later, including iPhone Duo. Redia works in portrait and landscape, and on iPhone Duo's inner display your profile grid gets more columns and pages stay centred and easy to read.</p>
         </details>
 
         <h2 id="attribution">Where the data comes from</h2>
-        <div class="attribution glass">
+        <div class="attribution">
           <img src="tmdb-logo.svg" alt="TMDB" width="94" height="40">
           <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-          <p>Music from Apple Music. Book, comic and author data from <a href="https://openlibrary.org/">Open Library</a>. Manga data from <a href="https://anilist.co/">AniList</a>. Game data from <a href="https://www.igdb.com/">IGDB.com</a>.</p>
+          <p>Music from Apple Music. Book, comic and author data from <a href="https://openlibrary.org/">Open Library</a>. Manga data from <a href="https://anilist.co/">AniList</a>. Game data <a href="https://www.igdb.com/">powered by IGDB.com</a>.</p>
         </div>
       </article>
     </div>
@@ -174,7 +190,7 @@
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
       </nav>
-      <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Book data from Open Library, manga data from AniList, game data from IGDB.com.</p>
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Book data from Open Library. Manga data from AniList. Game data <a href="https://www.igdb.com/">powered by IGDB.com</a>.</p>
       <p>© 2026 Omar Saraireh. iPhone, iCloud and Apple Music are trademarks of Apple Inc. This site uses no cookies, analytics or trackers.</p>
     </div>
   </footer>
